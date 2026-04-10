@@ -43,4 +43,9 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+    //coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    //navigation
+    implementation(libs.androidx.navigation.compose)
 }

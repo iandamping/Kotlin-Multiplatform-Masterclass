@@ -3,31 +3,42 @@ package com.junemon.multiplatform_masterclass.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.junemon.multiplatform_masterclass.DeviceInformation
+import com.junemon.multiplatform_masterclass.android.screen.DeviceInformationScreen
+import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val articleViewModel: ArticleViewModel by viewModels()
         setContent {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DevicePlatformInformation(
-                        osName = DeviceInformation().osName,
-                        osVersion = DeviceInformation().osVersion,
-                        deviceModel = DeviceInformation().deviceModel,
-                        screenDensity = DeviceInformation().deviceDensity
-                    )
+
+                    Scaffold { paddingValue ->
+                        DeviceInformationScreen(
+                            modifier = Modifier.padding(paddingValue),
+                            backClick = {})
+
+//                        ArticleScreen(
+//                            modifier = Modifier.padding(paddingValue),
+//                            viewModel = articleViewModel,
+//                            deviceInfoClick = {}
+//                        )
+                    }
                 }
             }
         }
