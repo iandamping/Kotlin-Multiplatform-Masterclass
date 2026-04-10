@@ -44,28 +44,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun DevicePlatformInformation(
-    modifier: Modifier = Modifier,
-    osName: String, osVersion: String, deviceModel: String, screenDensity: Int
-) {
-    Column(modifier) {
-        Text("Os Name : $osName")
-        Text("Os Version : $osVersion")
-        Text("Device Model : $deviceModel")
-        Text("Screen Density : $screenDensity")
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
 
 @Preview
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+
     }
 }

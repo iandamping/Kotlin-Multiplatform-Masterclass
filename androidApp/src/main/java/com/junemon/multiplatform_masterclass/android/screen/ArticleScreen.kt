@@ -1,6 +1,8 @@
 package com.junemon.multiplatform_masterclass.android.screen
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
@@ -13,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -38,20 +41,24 @@ fun ArticleScreen(
                 articles = article.data
             )
 
-            is DataResult.Error -> Text(
-                text = article.message,
-                style = MaterialTheme.typography.bodyMedium.copy(textAlign = TextAlign.Center)
+            is DataResult.Error -> CenterItemContent(
+                centerContent = {
+                    Text(
+                        text = article.message,
+                        style = MaterialTheme.typography.bodyMedium.copy(textAlign = TextAlign.Center)
+                    )
+                }
             )
 
-            DataResult.Loading -> CircularProgressIndicator(
-                modifier = Modifier.width(64.dp),
-                color = MaterialTheme.colorScheme.secondary,
-                trackColor = MaterialTheme.colorScheme.surfaceVariant,
-            )
+            DataResult.Loading -> CenterItemContent(centerContent = {
+                CircularProgressIndicator(
+                    modifier = Modifier.width(64.dp),
+                    color = MaterialTheme.colorScheme.secondary,
+                    trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                )
+            })
         }
     }
-
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -70,4 +77,18 @@ fun ArticleAppBar(
             )
         }
     })
+}
+
+@Composable
+fun CenterItemContent(
+    modifier: Modifier = Modifier,
+    centerContent: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+        content = {
+            centerContent.invoke()
+        }
+    )
 }

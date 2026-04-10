@@ -47,7 +47,6 @@ fun ArticleItem(
                 contentScale = ContentScale.Crop,
                 model = ImageRequest.Builder(LocalContext.current).data(article.imageUrl)
                     .crossfade(true)
-                    .allowHardware(false) // for palette library
                     .build(),
                 placeholder = painterResource(id = R.drawable.placeholder_image),
                 error = painterResource(id = R.drawable.ic_no_data),
