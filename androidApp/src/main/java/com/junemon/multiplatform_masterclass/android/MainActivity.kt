@@ -14,7 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.junemon.multiplatform_masterclass.android.screen.DeviceInformationScreen
+import androidx.navigation.compose.rememberNavController
+import com.junemon.multiplatform_masterclass.android.navigation.MultiplatformMasterclassNavHost
 import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
 
 class MainActivity : ComponentActivity() {
@@ -23,21 +24,19 @@ class MainActivity : ComponentActivity() {
         val articleViewModel: ArticleViewModel by viewModels()
         setContent {
             MyApplicationTheme {
+                val navController = rememberNavController()
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
 
                     Scaffold { paddingValue ->
-                        DeviceInformationScreen(
+                        MultiplatformMasterclassNavHost(
                             modifier = Modifier.padding(paddingValue),
-                            backClick = {})
-
-//                        ArticleScreen(
-//                            modifier = Modifier.padding(paddingValue),
-//                            viewModel = articleViewModel,
-//                            deviceInfoClick = {}
-//                        )
+                            navController = navController,
+                            articleViewModel = articleViewModel
+                        )
                     }
                 }
             }
