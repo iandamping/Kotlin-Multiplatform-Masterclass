@@ -12,8 +12,7 @@ class ArticleService(private val httpClient: HttpClient) {
     private val country = "us"
     private val category = "business"
 
-    //    private val apiKey = "f67ace1b27b24ce4b95c7f71fde88920"
-    private val apiKey = "25bd4439e7564164a9ab567975428415"
+    private val apiKey = "f67ace1b27b24ce4b95c7f71fde88920"
 
     suspend fun fetchArticles(): ApiResult<ArticlesResponse> {
         val rawResponse =
