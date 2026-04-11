@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.model
+package com.junemon.multiplatform_masterclass.articles.model
 
 data object MockArticles {
 

@@ -1,9 +1,9 @@
 package com.junemon.multiplatform_masterclass.articles
 
 import com.junemon.multiplatform_masterclass.BaseViewModel
-import com.junemon.multiplatform_masterclass.model.Article
-import com.junemon.multiplatform_masterclass.model.DataResult
-import com.junemon.multiplatform_masterclass.model.MockArticles
+import com.junemon.multiplatform_masterclass.articles.common.DomainResult
+import com.junemon.multiplatform_masterclass.articles.model.Article
+import com.junemon.multiplatform_masterclass.articles.model.MockArticles
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,10 +13,10 @@ import kotlinx.coroutines.launch
 
 class ArticleViewModel : BaseViewModel() {
 
-    private val _articleState: MutableStateFlow<DataResult<List<Article>>> =
-        MutableStateFlow(DataResult.Loading)
+    private val _articleState: MutableStateFlow<DomainResult<List<Article>>> =
+        MutableStateFlow(DomainResult.Loading)
 
-    val articleState: StateFlow<DataResult<List<Article>>>
+    val articleState: StateFlow<DomainResult<List<Article>>>
         get() = _articleState.asStateFlow()
 
     init {
@@ -27,7 +27,7 @@ class ArticleViewModel : BaseViewModel() {
         scope.launch {
             delay(1500)
             _articleState.update {
-                DataResult.Data(MockArticles.mockArticles)
+                DomainResult.Data(MockArticles.mockArticles)
             }
         }
     }

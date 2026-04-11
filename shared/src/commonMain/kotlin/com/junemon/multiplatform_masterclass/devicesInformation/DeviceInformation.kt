@@ -1,4 +1,7 @@
-package com.junemon.multiplatform_masterclass
+package com.junemon.multiplatform_masterclass.devicesInformation
+
+import com.junemon.multiplatform_masterclass.DevicePlatform
+import com.junemon.multiplatform_masterclass.getDevicePlatform
 
 class DeviceInformation {
     private val devicePlatform: DevicePlatform = getDevicePlatform()
