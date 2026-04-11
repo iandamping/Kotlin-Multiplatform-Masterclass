@@ -18,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.junemon.multiplatform_masterclass.DeviceInformation
+import com.junemon.multiplatform_masterclass.devicesInformation.DeviceInformation
 
 @Composable
 fun DeviceInformationScreen(
@@ -80,7 +80,7 @@ fun DeviceInformationAppBar(
     backClick: () -> Unit,
 ) {
     TopAppBar(modifier = modifier, title = {
-        Text("Articles")
+        Text("Device Information")
     }, navigationIcon = {
         IconButton(onClick = backClick) {
             Icon(

@@ -21,8 +21,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
-import com.junemon.multiplatform_masterclass.model.Article
-import com.junemon.multiplatform_masterclass.model.DataResult
+import com.junemon.multiplatform_masterclass.articles.common.DomainResult
+import com.junemon.multiplatform_masterclass.articles.model.Article
 
 @Composable
 fun ArticleScreen(
@@ -36,12 +36,12 @@ fun ArticleScreen(
         ArticleAppBar(deviceInfoClick = deviceInfoClick)
 
         when (val article = articleData) {
-            is DataResult.Data<List<Article>> -> ArticleItem(
+            is DomainResult.Data<List<Article>> -> ArticleItem(
                 modifier = modifier,
                 articles = article.data
             )
 
-            is DataResult.Error -> CenterItemContent(
+            is DomainResult.Error -> CenterItemContent(
                 centerContent = {
                     Text(
                         text = article.message,
@@ -50,7 +50,7 @@ fun ArticleScreen(
                 }
             )
 
-            DataResult.Loading -> CenterItemContent(centerContent = {
+            DomainResult.Loading -> CenterItemContent(centerContent = {
                 CircularProgressIndicator(
                     modifier = Modifier.width(64.dp),
                     color = MaterialTheme.colorScheme.secondary,
