@@ -13,7 +13,6 @@ import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
 fun MultiplatformMasterclassNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articleViewModel: ArticleViewModel
 ) {
     NavHost(
         navController = navController,
@@ -21,7 +20,7 @@ fun MultiplatformMasterclassNavHost(
         modifier = modifier
     ) {
         composable<NavigationScreen.ArticleScreen> {
-            ArticleScreen(viewModel = articleViewModel) {
+            ArticleScreen {
                 navController.navigate(NavigationScreen.DeviceInformationScreen)
             }
         }
