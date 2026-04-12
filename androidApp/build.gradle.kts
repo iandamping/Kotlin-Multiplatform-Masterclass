@@ -49,4 +49,7 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     //navigation
     implementation(libs.androidx.navigation.compose)
+    //koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 }

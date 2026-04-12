@@ -38,6 +38,8 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             //ktx datetime
             implementation(libs.kotlinx.datetime)
+            //koin
+            implementation(libs.koin.core)
         }
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)

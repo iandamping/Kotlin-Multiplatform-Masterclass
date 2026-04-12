@@ -23,11 +23,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
 import com.junemon.multiplatform_masterclass.articles.common.DomainResult
 import com.junemon.multiplatform_masterclass.articles.model.Article
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ArticleScreen(
     modifier: Modifier = Modifier,
-    viewModel: ArticleViewModel,
+    viewModel: ArticleViewModel = getViewModel<ArticleViewModel>(),
     deviceInfoClick: () -> Unit,
 ) {
     val articleData by viewModel.articleState.collectAsStateWithLifecycle()
