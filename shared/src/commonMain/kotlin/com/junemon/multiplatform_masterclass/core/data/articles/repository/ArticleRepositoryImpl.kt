@@ -1,8 +1,10 @@
-package com.junemon.multiplatform_masterclass.articles.data
+package com.junemon.multiplatform_masterclass.core.data.articles.repository
 
-import com.junemon.multiplatform_masterclass.articles.common.DataResult
-import com.junemon.multiplatform_masterclass.articles.model.Article
-import com.junemon.multiplatform_masterclass.articles.model.ArticleData
+import com.junemon.multiplatform_masterclass.core.data.articles.common.DataResult
+import com.junemon.multiplatform_masterclass.core.data.articles.local.dataSource.ArticleLocalDataSource
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.dataSource.ArticleRemoteDataSource
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ArticleData
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -10,7 +12,10 @@ import kotlinx.datetime.daysUntil
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 
-class ArticleRepositoryImpl(private val remoteData: ArticleRemoteDataSource) : ArticleRepository {
+class ArticleRepositoryImpl(
+    private val remoteData: ArticleRemoteDataSource,
+    private val localData: ArticleLocalDataSource
+) : ArticleRepository {
 
     override suspend fun getArticles(): DataResult<List<Article>> {
         return when (val remoteData = remoteData.getArticles()) {

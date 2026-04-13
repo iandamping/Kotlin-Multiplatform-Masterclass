@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.di
+package com.junemon.multiplatform_masterclass.core.di
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

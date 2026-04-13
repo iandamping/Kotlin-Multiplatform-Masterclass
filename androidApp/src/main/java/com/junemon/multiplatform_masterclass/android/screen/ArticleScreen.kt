@@ -20,9 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
-import com.junemon.multiplatform_masterclass.articles.common.DomainResult
-import com.junemon.multiplatform_masterclass.articles.model.Article
+import com.junemon.multiplatform_masterclass.core.data.articles.ArticleViewModel
+import com.junemon.multiplatform_masterclass.core.data.articles.common.DomainResult
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
 import org.koin.androidx.compose.getViewModel
 
 @Composable

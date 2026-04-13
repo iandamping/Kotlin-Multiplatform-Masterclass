@@ -1,10 +1,10 @@
-package com.junemon.multiplatform_masterclass.articles
+package com.junemon.multiplatform_masterclass.core.data.articles
 
 import com.junemon.multiplatform_masterclass.BaseViewModel
-import com.junemon.multiplatform_masterclass.articles.common.DataResult
-import com.junemon.multiplatform_masterclass.articles.common.DomainResult
-import com.junemon.multiplatform_masterclass.articles.data.ArticleRepository
-import com.junemon.multiplatform_masterclass.articles.model.Article
+import com.junemon.multiplatform_masterclass.core.data.articles.common.DataResult
+import com.junemon.multiplatform_masterclass.core.data.articles.common.DomainResult
+import com.junemon.multiplatform_masterclass.core.data.articles.repository.ArticleRepository
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

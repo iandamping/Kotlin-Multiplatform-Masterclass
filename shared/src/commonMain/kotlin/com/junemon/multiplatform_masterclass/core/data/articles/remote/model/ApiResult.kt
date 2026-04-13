@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.articles.model
+package com.junemon.multiplatform_masterclass.core.data.articles.remote.model
 
 sealed interface ApiResult<out T> {
     data class Success<out T>(val data: T) : ApiResult<T>

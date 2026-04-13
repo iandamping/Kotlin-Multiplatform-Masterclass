@@ -7,7 +7,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.junemon.multiplatform_masterclass.android.screen.ArticleScreen
 import com.junemon.multiplatform_masterclass.android.screen.DeviceInformationScreen
-import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
 
 @Composable
 fun MultiplatformMasterclassNavHost(

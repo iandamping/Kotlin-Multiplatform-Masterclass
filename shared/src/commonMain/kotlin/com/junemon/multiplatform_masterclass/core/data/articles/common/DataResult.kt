@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.articles.common
+package com.junemon.multiplatform_masterclass.core.data.articles.common
 
 sealed interface DataResult<out T> {
 

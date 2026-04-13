@@ -1,7 +1,7 @@
-package com.junemon.multiplatform_masterclass.articles.service
+package com.junemon.multiplatform_masterclass.core.data.articles.remote.service
 
-import com.junemon.multiplatform_masterclass.articles.model.ApiResult
-import com.junemon.multiplatform_masterclass.articles.model.ArticlesResponse
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ApiResult
+import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ArticlesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
