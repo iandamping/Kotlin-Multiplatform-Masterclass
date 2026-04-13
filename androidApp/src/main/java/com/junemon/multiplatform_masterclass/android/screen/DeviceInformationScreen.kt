@@ -18,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.junemon.multiplatform_masterclass.devicesInformation.DeviceInformation
+import com.junemon.multiplatform_masterclass.core.data.devicesInformation.DeviceInformation
 
 @Composable
 fun DeviceInformationScreen(

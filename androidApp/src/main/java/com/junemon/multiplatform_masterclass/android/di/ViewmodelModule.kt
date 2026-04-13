@@ -1,6 +1,6 @@
 package com.junemon.multiplatform_masterclass.android.di
 
-import com.junemon.multiplatform_masterclass.articles.ArticleViewModel
+import com.junemon.multiplatform_masterclass.core.data.articles.ArticleViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
