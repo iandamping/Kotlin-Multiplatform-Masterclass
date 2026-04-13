@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     kotlin("plugin.serialization") version "2.0.21"
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -40,6 +41,8 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             //koin
             implementation(libs.koin.core)
+            //sql
+            implementation(libs.sql.coroutines.extensions)
         }
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -47,6 +50,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
             //ktor
             implementation(libs.ktor.client.android) // Engine for Android
+            //sql
+            implementation(libs.sql.android.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -63,5 +68,18 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+sqldelight {
+    databases {
+        create(name = "MultiplatformMasterclassDatabase") {
+            packageName.set("com.junemon.multiplatform_masterclass.db")
+        }
     }
 }
