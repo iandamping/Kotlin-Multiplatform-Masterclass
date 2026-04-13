@@ -43,6 +43,9 @@ kotlin {
             implementation(libs.koin.core)
             //sql
             implementation(libs.sql.coroutines.extensions)
+            //settings
+            implementation(libs.multiplatform.settings)
+            implementation(libs.multiplatform.settings.no.arg)
         }
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
