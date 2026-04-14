@@ -28,7 +28,7 @@ class ArticleRepositoryImpl(
             .toEpochMilliseconds() - lastSync) > databaseTimeout
     }
 
-    override suspend fun getArticles(): DataResult<List<Article>> {
+    override suspend fun getArticles(isForceRefresh:Boolean): DataResult<List<Article>> {
         return if (isLocalDataExpired()) {
             when (val remoteData = remoteData.getArticles()) {
                 is DataResult.Data<List<ArticleData>> -> {
@@ -41,7 +41,18 @@ class ArticleRepositoryImpl(
                 is DataResult.Error -> DataResult.Error(remoteData.message)
             }
         } else {
-            DataResult.Data(articlesMapper(localData.getArticles()))
+            if(isForceRefresh){
+                when (val remoteData = remoteData.getArticles()) {
+                    is DataResult.Data<List<ArticleData>> -> {
+                        localData.insertArticles(remoteData.data)
+                        localData.setLastUpdate(Clock.System.now().toEpochMilliseconds())
+
+                        DataResult.Data(articlesMapper(localData.getArticles()))
+                    }
+
+                    is DataResult.Error -> DataResult.Error(remoteData.message)
+                }
+            } else DataResult.Data(articlesMapper(localData.getArticles()))
         }
     }
 

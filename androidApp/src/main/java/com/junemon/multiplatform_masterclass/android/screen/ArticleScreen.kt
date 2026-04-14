@@ -32,6 +32,7 @@ fun ArticleScreen(
     deviceInfoClick: () -> Unit,
 ) {
     val articleData by viewModel.articleState.collectAsStateWithLifecycle()
+    val isRefresh by viewModel.isRefreshState.collectAsStateWithLifecycle()
 
     Column(modifier) {
         ArticleAppBar(deviceInfoClick = deviceInfoClick)
@@ -39,7 +40,11 @@ fun ArticleScreen(
         when (val article = articleData) {
             is DomainResult.Data<List<Article>> -> ArticleItem(
                 modifier = modifier,
-                articles = article.data
+                articles = article.data,
+                isRefresh = isRefresh,
+                isRefreshing = { isRefresh ->
+                    viewModel.setRefreshState(isRefresh)
+                }
             )
 
             is DomainResult.Error -> CenterItemContent(
