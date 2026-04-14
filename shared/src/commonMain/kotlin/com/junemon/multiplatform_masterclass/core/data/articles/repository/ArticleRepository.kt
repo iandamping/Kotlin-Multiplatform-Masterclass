@@ -5,5 +5,5 @@ import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Art
 
 interface ArticleRepository {
 
-    suspend fun getArticles(): DataResult<List<Article>>
+    suspend fun getArticles(isForceRefresh:Boolean): DataResult<List<Article>>
 }
