@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.core.data.devicesInformation
+package com.junemon.multiplatform_masterclass.core.data.local.devicesInformation
 
 import com.junemon.multiplatform_masterclass.DevicePlatform
 import com.junemon.multiplatform_masterclass.getDevicePlatform

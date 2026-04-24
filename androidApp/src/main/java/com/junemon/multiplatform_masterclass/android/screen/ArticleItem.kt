@@ -28,7 +28,7 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.junemon.multiplatform_masterclass.android.R
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
+import com.junemon.multiplatform_masterclass.core.data.remote.article.model.Article
 
 @Composable
 fun ArticleItem(

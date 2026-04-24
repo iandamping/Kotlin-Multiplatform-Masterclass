@@ -1,4 +1,4 @@
-package com.junemon.multiplatform_masterclass.core.data.articles.remote.model
+package com.junemon.multiplatform_masterclass.core.data.remote.article.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

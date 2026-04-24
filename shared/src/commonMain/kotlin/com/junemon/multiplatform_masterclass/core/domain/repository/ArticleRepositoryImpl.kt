@@ -1,10 +1,10 @@
-package com.junemon.multiplatform_masterclass.core.data.articles.repository
+package com.junemon.multiplatform_masterclass.core.domain.repository
 
-import com.junemon.multiplatform_masterclass.core.data.articles.common.DataResult
-import com.junemon.multiplatform_masterclass.core.data.articles.local.dataSource.ArticleLocalDataSource
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.dataSource.ArticleRemoteDataSource
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ArticleData
+import com.junemon.multiplatform_masterclass.core.data.common.DataResult
+import com.junemon.multiplatform_masterclass.core.data.local.article.ArticleLocalDataSource
+import com.junemon.multiplatform_masterclass.core.data.remote.article.dataSource.ArticleRemoteDataSource
+import com.junemon.multiplatform_masterclass.core.data.remote.article.model.Article
+import com.junemon.multiplatform_masterclass.core.data.remote.article.model.ArticleData
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -44,6 +44,7 @@ class ArticleRepositoryImpl(
             if(isForceRefresh){
                 when (val remoteData = remoteData.getArticles()) {
                     is DataResult.Data<List<ArticleData>> -> {
+                        localData.deleteArticles()
                         localData.insertArticles(remoteData.data)
                         localData.setLastUpdate(Clock.System.now().toEpochMilliseconds())
 

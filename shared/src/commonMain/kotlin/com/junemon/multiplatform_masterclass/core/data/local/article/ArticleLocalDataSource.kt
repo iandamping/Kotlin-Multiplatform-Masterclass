@@ -1,6 +1,6 @@
-package com.junemon.multiplatform_masterclass.core.data.articles.local.dataSource
+package com.junemon.multiplatform_masterclass.core.data.local.article
 
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ArticleData
+import com.junemon.multiplatform_masterclass.core.data.remote.article.model.ArticleData
 
 interface ArticleLocalDataSource {
 

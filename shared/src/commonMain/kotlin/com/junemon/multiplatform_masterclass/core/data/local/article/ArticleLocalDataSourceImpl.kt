@@ -1,6 +1,6 @@
-package com.junemon.multiplatform_masterclass.core.data.articles.local.dataSource
+package com.junemon.multiplatform_masterclass.core.data.local.article
 
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.ArticleData
+import com.junemon.multiplatform_masterclass.core.data.remote.article.model.ArticleData
 import com.junemon.multiplatform_masterclass.db.MultiplatformMasterclassDatabase
 import com.russhwolf.settings.Settings
 
@@ -10,7 +10,7 @@ class ArticleLocalDataSourceImpl(
 ) :
     ArticleLocalDataSource {
 
-    private val getLastUpdateKey = "update"
+    private val getLastUpdateKey = "article_update"
 
     override fun setLastUpdate(time: Long) {
         sharedPreferences.putLong(getLastUpdateKey, time)
