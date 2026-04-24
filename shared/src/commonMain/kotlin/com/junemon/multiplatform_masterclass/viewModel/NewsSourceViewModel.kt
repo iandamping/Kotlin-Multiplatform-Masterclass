@@ -1,10 +1,10 @@
-package com.junemon.multiplatform_masterclass.core.data.articles
+package com.junemon.multiplatform_masterclass.viewModel
 
 import com.junemon.multiplatform_masterclass.BaseViewModel
-import com.junemon.multiplatform_masterclass.core.data.articles.common.DataResult
-import com.junemon.multiplatform_masterclass.core.data.articles.common.DomainResult
-import com.junemon.multiplatform_masterclass.core.data.articles.remote.model.Article
-import com.junemon.multiplatform_masterclass.core.data.articles.repository.ArticleRepository
+import com.junemon.multiplatform_masterclass.core.data.common.DataResult
+import com.junemon.multiplatform_masterclass.core.data.common.DomainResult
+import com.junemon.multiplatform_masterclass.core.data.remote.source.model.NewsSource
+import com.junemon.multiplatform_masterclass.core.domain.repository.NewsSourceRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,18 +16,19 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class ArticleViewModel(private val repository: ArticleRepository) : BaseViewModel() {
+class NewsSourceViewModel(private val repository: NewsSourceRepository) :
+    BaseViewModel() {
 
     private val _isRefreshState: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val isRefreshState: StateFlow<Boolean> = _isRefreshState.asStateFlow()
 
-    val articleState: StateFlow<DomainResult<List<Article>>> = isRefreshState
+    val newsSourcesState: StateFlow<DomainResult<List<NewsSource>>> = isRefreshState
         .flatMapLatest { isForce ->
             flow {
                 emit(DomainResult.Loading)
                 emit(
-                    when (val data = repository.getArticles(isForceRefresh = isForce)) {
-                        is DataResult.Data<List<Article>> -> {
+                    when (val data = repository.getNewsSource(isForceRefresh = isForce)) {
+                        is DataResult.Data<List<NewsSource>> -> {
                             setRefreshState(false)
                             DomainResult.Data(data.data)
                         }
@@ -42,7 +43,7 @@ class ArticleViewModel(private val repository: ArticleRepository) : BaseViewMode
         }
         .stateIn(
             scope = scope,
-            started = SharingStarted.WhileSubscribed(5000),
+            started = SharingStarted.Companion.WhileSubscribed(5000),
             initialValue = DomainResult.Loading
         )
 
