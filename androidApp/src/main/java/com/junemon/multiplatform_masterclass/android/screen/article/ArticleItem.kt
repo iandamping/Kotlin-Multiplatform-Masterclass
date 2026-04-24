@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.junemon.multiplatform_masterclass.android.screen
+package com.junemon.multiplatform_masterclass.android.screen.article
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

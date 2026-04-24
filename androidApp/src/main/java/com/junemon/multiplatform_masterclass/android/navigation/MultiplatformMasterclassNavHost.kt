@@ -5,8 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.junemon.multiplatform_masterclass.android.screen.ArticleScreen
-import com.junemon.multiplatform_masterclass.android.screen.DeviceInformationScreen
+import com.junemon.multiplatform_masterclass.android.screen.article.ArticleScreen
+import com.junemon.multiplatform_masterclass.android.screen.deviceInformation.DeviceInformationScreen
+import com.junemon.multiplatform_masterclass.android.screen.newsSource.NewsSourceScreen
 
 @Composable
 fun MultiplatformMasterclassNavHost(
@@ -19,9 +20,18 @@ fun MultiplatformMasterclassNavHost(
         modifier = modifier
     ) {
         composable<NavigationScreen.ArticleScreen> {
-            ArticleScreen {
-                navController.navigate(NavigationScreen.DeviceInformationScreen)
-            }
+            ArticleScreen(
+                deviceInfoClick = {
+                    navController.navigate(NavigationScreen.DeviceInformationScreen)
+                }, newsSourceClick = {
+                    navController.navigate(NavigationScreen.NewsSourceScreen)
+                })
+        }
+
+        composable<NavigationScreen.NewsSourceScreen> {
+            NewsSourceScreen(backClick = {
+                navController.popBackStack()
+            })
         }
 
         composable<NavigationScreen.DeviceInformationScreen> {

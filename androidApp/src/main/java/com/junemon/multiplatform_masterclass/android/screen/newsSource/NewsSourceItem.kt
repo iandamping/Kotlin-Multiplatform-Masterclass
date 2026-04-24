@@ -1,8 +1,7 @@
-package com.junemon.multiplatform_masterclass.android.screen
+package com.junemon.multiplatform_masterclass.android.screen.newsSource
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn

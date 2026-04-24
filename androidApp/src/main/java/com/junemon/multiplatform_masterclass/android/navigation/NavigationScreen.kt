@@ -14,4 +14,8 @@ sealed interface NavigationScreen {
     @Serializable
     object DeviceInformationScreen : NavigationScreen
 
+    @Keep
+    @Serializable
+    object NewsSourceScreen : NavigationScreen
+
 }
